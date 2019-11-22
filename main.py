@@ -12,6 +12,10 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import f1_score
 import pima
 
+'''
+Function Name: main 
+Description: main function for calling other functions
+'''
 
 def main():
     data= pd.read_csv("diabetes.csv")
