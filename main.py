@@ -23,13 +23,20 @@ def main():
     pima.data_visualization(data1)
 
     pima.plot_corr(data[:8])
-    pima.feature_selection(data)
 
+    pima.feature_selection(data)
+    # After feature selection take the most important features
     data= data[["Glucose","BMI","Age","DiabetesPedigreeFunction","Outcome"]]
     pima.plot_corr(data)
     print(data.shape)
+
+    # data preprocessing
     X_train,X_test,y_train, y_test= pima.data_preprocessing(data)
+
+    # implement Random Forest
     y_pred = pima.RFClassification(X_train,X_test,y_train, y_test)
+
+    # Check Acuracy metrices
     cm = confusion_matrix(y_test, y_pred)
     print (cm)
     print(f1_score(y_test, y_pred))
